@@ -1,0 +1,37 @@
+pragma solidity >=0.4.22 <0.7.0;
+
+contract human{
+    uint private age;
+    
+    event logString (string);
+    constructor (uint a) public {
+        emit logString ("Calling default human constructor");
+    }
+    
+    function getAge() public returns (uint){
+        return age;
+        
+    }
+    function setAge(uint _age) public returns (uint) {
+        age = _age;
+        
+    }  
+}
+
+contract Student is human {
+    
+    uint public age;
+
+
+contract demoObject {
+    function doSomething() public returns  (uint){
+        human h = new human(89);
+        Student s = new Student();
+        s.getAge ()
+        h.setAge(5);
+        return h.getAge();
+    }
+}
+
+
+
