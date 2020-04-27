@@ -1,0 +1,16 @@
+pragma solidity ^0.6.0;
+
+contract functionParam{
+    function doSomthing() public{
+        
+    }
+    function doSomthing1(uint a, uint b) public pure returns (uint){
+        uint result = a * b;
+        return result;
+    }
+    function doSomthing2 (uint a) public pure returns (uint resultMul, uint resultDiv){
+        resultMul = a * a;
+        resultDiv = a/2;
+    }
+    
+}
