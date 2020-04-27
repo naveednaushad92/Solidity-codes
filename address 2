@@ -1,0 +1,32 @@
+pragma solidity ^0.6.0;
+
+contract AddressContract{
+    //Only balance property is available in address. No send and transfer function
+    //address owner;
+    // balance, send() and transfer() functions are available
+    //address payable myaddress;
+    
+    address payable owner;
+    //external owned account (EOA)
+    
+    
+    address payable myaddress = payable(address(this));
+    //contract account
+    
+    
+    constructor () public {
+        // kaon iss contract ko deploy kr raha hay wo iss ka owner ho ga
+        owner = msg.sender;
+    }
+    function getBalance () public view returns (uint oBalance, uint cBalance ){
+        oBalance = owner.balance;
+        cBalance = myaddress.balance;
+    
+    }
+    function pay () public payable returns (bool success) {
+        //owner ko send kr day jo bhi value transfer ki hay iss transaction main
+        success = owner.send(msg.value); 
+    }
+    
+    
+}
