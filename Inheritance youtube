@@ -1,0 +1,60 @@
+pragma solidity ^0.5.0;
+
+
+contract interfaceRegulator{
+    function checkValue (uint amount) external returns (bool);
+    function loan () public view returns (bool);
+}
+
+contract bankIsRegulator{
+    uint private value;
+    
+    function OpeningBankBalance (uint amount) public{
+        value = amount;
+    }
+    
+    function deposit  (uint amount) public{
+        value +=amount;
+    }
+    
+    function withdraw (uint amount) public{
+        value -=amount;
+        
+    }
+    
+    function ClosingBankBalance () public view returns  (uint)  {
+        return value;
+    }
+    
+    function checkValue (uint amount) public returns (bool){
+        return amount >= value;
+    }
+    
+    function loan() public returns (bool){
+        return value > 10;
+    }
+    
+}
+
+contract MyfirstcontractIsBank{
+    
+    string private name;
+    uint private age;
+    
+    function setName(string memory newname) public{
+        name = newname;
+        
+    }  
+    function getName() public view returns (string memory)   {
+        return name;
+        
+    }
+    
+    function setAge(uint newage) public{
+        age = newage;
+        
+    }
+    function getAge() public view returns (uint) {
+        return age;
+    }
+}
