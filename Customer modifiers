@@ -1,0 +1,66 @@
+pragma solidity ^0.5.0;
+
+contract bankIsRegulator{
+    uint private value;
+    
+    address private owner;
+
+    modifier ownerFunc{
+        //if you try function
+        //use differnt address to use for transaction than it will show error.
+        require (owner ==msg.sender);
+        _;
+    }
+    
+    function Bank(uint amount) public{
+        value = amount;
+        owner = msg.sender;
+        //only owner can deposit and withdraw funds ownwer means creater of this contract.    
+        }
+    
+    function deposit (uint amount) public ownerFunc{
+        value +=amount;
+    }
+    
+    function withdraw (uint amount) public ownerFunc{
+        if (checkValue(amount)){    
+        value -=amount;
+        }
+        
+    }
+    
+    function ClosingBankBalance () public view returns  (uint)  {
+        return value;
+    }
+    
+    function checkValue (uint amount) public returns (bool){
+        return value >= amount;
+    }
+    
+    function loan() public returns (bool){
+        return value > 10;
+    }
+    
+}
+
+contract TesttheAssert{
+    function testAssert() public view  returns (bool) {
+        assert (1==2);
+        
+        
+    }
+    function testRequired() public view  returns (bool){
+        require (2==1);     
+     
+        
+    }
+    
+    function testRevert() public view returns(bool){
+        revert();
+     
+        
+    }
+    
+    //throw is depreciated in solidity 5 
+
+}
