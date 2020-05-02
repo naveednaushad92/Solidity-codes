@@ -1,0 +1,29 @@
+pragma solidity ^0.5.0;
+
+import "browser/library.sol";
+//in case library is on remote
+//import "github.com/willitscale/solidity/library.sol";
+
+contract useLibrary{
+    using Intextended for uint;
+    //using Intextended for * 
+    //means using Intextended for ell integers and string and other variable types as well
+    
+    function testIncrement (uint _base) public  view returns (uint){
+        return Intextended.increment (_base);
+        
+    }
+    function testDecrement (uint _base) public  view returns (uint){
+        return Intextended.decrement (_base);
+    }
+    
+    function testIncrementbyValue (uint _base, uint _value) public  view returns (uint){
+        return _base.incrementbyvalue(_value);
+    }
+    
+    function testDecrementbyValue (uint _base, uint _value) public  view returns (uint){
+        return _base.decrementbyValue(_value);
+    }
+    
+    
+}
