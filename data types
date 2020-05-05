@@ -1,0 +1,66 @@
+pragma solidity ^0.5.0;
+
+contract dataTypes{
+    
+    bool mybool = false;
+    
+    int8 myint = -128;
+    uint8 myuint = 255;
+    
+    string mystring;
+    
+    uint8 [] mystringArr;
+    
+    byte myValue;
+    bytes1 myBytes1;
+    bytes32 myBytes2;
+    
+    fixed256x8 myfixed = 2;
+    ufixed256x8 myfixed2 = 3;
+    
+    enum ValuesofOno {two, three, four,five, six, seven, eight, nine, skip, drawtwo, drawfour, reverse}
+    
+    ValuesofOno myOno = ValuesofOno.three;
+    
+    address payable myAddress;
+    
+    function assignAddress() public{
+        myAddress = msg.sender;
+        myAddress.balance;
+        myAddress.transfer(3);
+    }
+    
+    uint[] myArrayofInteger = [1,2,3];
+    
+    function arrayFunc () public {
+        myArrayofInteger.push(1);
+        myArrayofInteger.length;
+        myArrayofInteger[0];
+    }
+    
+    uint[5] myFixedArrayofInteger = [1,2,3,4,5];
+    
+    //by using push if you cross the limit of 5 this will show as out of bound exception
+    
+    //struct is an object with no functionality
+    
+    struct Account {
+        uint balance;
+        uint dailyLimit;
+    }
+    Account JamesAccount;
+    
+    function structFun  () public {
+        JamesAccount.balance = 10;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
